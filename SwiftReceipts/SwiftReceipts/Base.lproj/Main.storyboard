@@ -1,24 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H9m-Cb-6cr">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Meal List-->
+        <scene sceneID="fFU-3I-gzB">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController title="Meal List" id="HNy-VA-FhU" customClass="MealListTableViewController" customModule="SwiftReceipts" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6sM-3r-goL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealCell" id="k01-zs-ag1" customClass="MealTableViewCell" customModule="SwiftReceipts" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="198"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k01-zs-ag1" id="oB3-36-fYW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="198"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X61-av-DMh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="140" id="Yw0-qE-M9x"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFl-0z-ZL0">
+                                            <rect key="frame" x="20" y="156" width="374" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="X61-av-DMh" firstAttribute="top" secondItem="oB3-36-fYW" secondAttribute="top" id="3nd-gG-eqw"/>
+                                        <constraint firstAttribute="trailing" secondItem="X61-av-DMh" secondAttribute="trailing" id="FGw-lr-ios"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="VFl-0z-ZL0" secondAttribute="trailing" id="dBZ-NE-xdP"/>
+                                        <constraint firstItem="VFl-0z-ZL0" firstAttribute="leading" secondItem="oB3-36-fYW" secondAttribute="leadingMargin" id="lqJ-fr-0qS"/>
+                                        <constraint firstItem="VFl-0z-ZL0" firstAttribute="top" secondItem="X61-av-DMh" secondAttribute="bottom" constant="16" id="nuJ-30-k7H"/>
+                                        <constraint firstItem="X61-av-DMh" firstAttribute="leading" secondItem="oB3-36-fYW" secondAttribute="leading" id="smy-tC-uZp"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="VFl-0z-ZL0" secondAttribute="bottom" constant="8" id="w3E-bC-0df"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageThumb" destination="X61-av-DMh" id="Qp8-iT-4EH"/>
+                                    <outlet property="labelMeal" destination="VFl-0z-ZL0" id="ARo-ah-OtG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HNy-VA-FhU" id="qA6-CZ-i7q"/>
+                            <outlet property="delegate" destination="HNy-VA-FhU" id="Glh-df-QTk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Swift Receipts" id="hpA-eu-tBz">
+                        <barButtonItem key="rightBarButtonItem" image="baseline_emoji_flags_white_24pt" id="3GS-Bi-s09">
+                            <connections>
+                                <action selector="openFilter:" destination="HNy-VA-FhU" id="KnO-Yj-i9i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonFilter" destination="3GS-Bi-s09" id="AbT-Jy-o1z"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9L-cZ-WgE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="435" y="61"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="X5h-K6-JYN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H9m-Cb-6cr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="UvQ-zb-9i4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HNy-VA-FhU" kind="relationship" relationship="rootViewController" id="Mgf-87-zS6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ew2-Z3-0U7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-315.94202898550725" y="60.9375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="baseline_emoji_flags_white_24pt" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

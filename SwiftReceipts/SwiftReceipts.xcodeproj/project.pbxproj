@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,13 +11,21 @@
 		5C00E76E8167326CB39FB785 /* Pods_SwiftReceiptsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECC491B33DDA1B98266D039 /* Pods_SwiftReceiptsTests.framework */; };
 		ACD7897E253621B100B0C7B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7897D253621B100B0C7B9 /* AppDelegate.swift */; };
 		ACD78980253621B100B0C7B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7897F253621B100B0C7B9 /* SceneDelegate.swift */; };
-		ACD78982253621B100B0C7B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD78981253621B100B0C7B9 /* ViewController.swift */; };
 		ACD78985253621B100B0C7B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD78983253621B100B0C7B9 /* Main.storyboard */; };
 		ACD78988253621B200B0C7B9 /* SwiftReceipts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACD78986253621B100B0C7B9 /* SwiftReceipts.xcdatamodeld */; };
 		ACD7898A253621BB00B0C7B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD78989253621BB00B0C7B9 /* Assets.xcassets */; };
 		ACD7898D253621BB00B0C7B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD7898B253621BB00B0C7B9 /* LaunchScreen.storyboard */; };
 		ACD78998253621BC00B0C7B9 /* SwiftReceiptsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD78997253621BC00B0C7B9 /* SwiftReceiptsTests.swift */; };
 		ACD789A3253621BC00B0C7B9 /* SwiftReceiptsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD789A2253621BC00B0C7B9 /* SwiftReceiptsUITests.swift */; };
+		ACD789C625362C9B00B0C7B9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD789C525362C9B00B0C7B9 /* APIService.swift */; };
+		ACD789F12536384200B0C7B9 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD789F02536384200B0C7B9 /* Meal.swift */; };
+		ACD78A192536440C00B0C7B9 /* MealsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD789F825363D0E00B0C7B9 /* MealsResult.swift */; };
+		ACD78A1A2536440C00B0C7B9 /* AreasResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD78A002536437800B0C7B9 /* AreasResult.swift */; };
+		ACD78A1B2536440C00B0C7B9 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD78A082536438000B0C7B9 /* Area.swift */; };
+		ACD78A252536459100B0C7B9 /* MealListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD78A242536459100B0C7B9 /* MealListTableViewController.swift */; };
+		ACD78A2D2536502000B0C7B9 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD78A2C2536502000B0C7B9 /* MealTableViewCell.swift */; };
+		ACD78A322536509A00B0C7B9 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD78A312536509A00B0C7B9 /* MealViewModel.swift */; };
+		ACD78A372536528500B0C7B9 /* MealListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD78A362536528500B0C7B9 /* MealListViewModel.swift */; };
 		BD0DD5600DA214958BB67FE8 /* Pods_SwiftReceipts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C3DF796FB35F72C7468139 /* Pods_SwiftReceipts.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +55,6 @@
 		ACD7897A253621B100B0C7B9 /* SwiftReceipts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftReceipts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD7897D253621B100B0C7B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACD7897F253621B100B0C7B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ACD78981253621B100B0C7B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ACD78984253621B100B0C7B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACD78987253621B100B0C7B9 /* SwiftReceipts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftReceipts.xcdatamodel; sourceTree = "<group>"; };
 		ACD78989253621BB00B0C7B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +66,15 @@
 		ACD7899E253621BC00B0C7B9 /* SwiftReceiptsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftReceiptsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD789A2253621BC00B0C7B9 /* SwiftReceiptsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftReceiptsUITests.swift; sourceTree = "<group>"; };
 		ACD789A4253621BC00B0C7B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACD789C525362C9B00B0C7B9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		ACD789F02536384200B0C7B9 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		ACD789F825363D0E00B0C7B9 /* MealsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsResult.swift; sourceTree = "<group>"; };
+		ACD78A002536437800B0C7B9 /* AreasResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasResult.swift; sourceTree = "<group>"; };
+		ACD78A082536438000B0C7B9 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		ACD78A242536459100B0C7B9 /* MealListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListTableViewController.swift; sourceTree = "<group>"; };
+		ACD78A2C2536502000B0C7B9 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		ACD78A312536509A00B0C7B9 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
+		ACD78A362536528500B0C7B9 /* MealListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewModel.swift; sourceTree = "<group>"; };
 		B88AF78D3063646891F201C1 /* Pods-SwiftReceipts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftReceipts.debug.xcconfig"; path = "Target Support Files/Pods-SwiftReceipts/Pods-SwiftReceipts.debug.xcconfig"; sourceTree = "<group>"; };
 		C999DAC1BA32AD152D810A27 /* Pods-SwiftReceipts-SwiftReceiptsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftReceipts-SwiftReceiptsUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftReceipts-SwiftReceiptsUITests/Pods-SwiftReceipts-SwiftReceiptsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DAD662D94B1B19D425F23B5E /* Pods-SwiftReceipts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftReceipts.release.xcconfig"; path = "Target Support Files/Pods-SwiftReceipts/Pods-SwiftReceipts.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,7 +119,6 @@
 				EF34E60CE45B08F67CF03AF2 /* Pods-SwiftReceiptsTests.debug.xcconfig */,
 				832D5B890735F98C075E344C /* Pods-SwiftReceiptsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -132,9 +147,11 @@
 		ACD7897C253621B100B0C7B9 /* SwiftReceipts */ = {
 			isa = PBXGroup;
 			children = (
+				ACD78A1F253644B700B0C7B9 /* Modules */,
+				ACD789CD25362CD700B0C7B9 /* Model */,
+				ACD789C425362C8B00B0C7B9 /* Helper */,
 				ACD7897D253621B100B0C7B9 /* AppDelegate.swift */,
 				ACD7897F253621B100B0C7B9 /* SceneDelegate.swift */,
-				ACD78981253621B100B0C7B9 /* ViewController.swift */,
 				ACD78983253621B100B0C7B9 /* Main.storyboard */,
 				ACD78989253621BB00B0C7B9 /* Assets.xcassets */,
 				ACD7898B253621BB00B0C7B9 /* LaunchScreen.storyboard */,
@@ -160,6 +177,44 @@
 				ACD789A4253621BC00B0C7B9 /* Info.plist */,
 			);
 			path = SwiftReceiptsUITests;
+			sourceTree = "<group>";
+		};
+		ACD789C425362C8B00B0C7B9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				ACD789C525362C9B00B0C7B9 /* APIService.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		ACD789CD25362CD700B0C7B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACD789F825363D0E00B0C7B9 /* MealsResult.swift */,
+				ACD78A002536437800B0C7B9 /* AreasResult.swift */,
+				ACD78A082536438000B0C7B9 /* Area.swift */,
+				ACD789F02536384200B0C7B9 /* Meal.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ACD78A1F253644B700B0C7B9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				ACD78A23253644C900B0C7B9 /* MealList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		ACD78A23253644C900B0C7B9 /* MealList */ = {
+			isa = PBXGroup;
+			children = (
+				ACD78A242536459100B0C7B9 /* MealListTableViewController.swift */,
+				ACD78A362536528500B0C7B9 /* MealListViewModel.swift */,
+				ACD78A2C2536502000B0C7B9 /* MealTableViewCell.swift */,
+				ACD78A312536509A00B0C7B9 /* MealViewModel.swift */,
+			);
+			path = MealList;
 			sourceTree = "<group>";
 		};
 		C85083EA70FF98945846EC9E /* Frameworks */ = {
@@ -410,10 +465,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACD78982253621B100B0C7B9 /* ViewController.swift in Sources */,
+				ACD78A192536440C00B0C7B9 /* MealsResult.swift in Sources */,
+				ACD78A1A2536440C00B0C7B9 /* AreasResult.swift in Sources */,
+				ACD78A322536509A00B0C7B9 /* MealViewModel.swift in Sources */,
+				ACD78A1B2536440C00B0C7B9 /* Area.swift in Sources */,
+				ACD789C625362C9B00B0C7B9 /* APIService.swift in Sources */,
+				ACD78A2D2536502000B0C7B9 /* MealTableViewCell.swift in Sources */,
+				ACD789F12536384200B0C7B9 /* Meal.swift in Sources */,
 				ACD7897E253621B100B0C7B9 /* AppDelegate.swift in Sources */,
 				ACD78988253621B200B0C7B9 /* SwiftReceipts.xcdatamodeld in Sources */,
 				ACD78980253621B100B0C7B9 /* SceneDelegate.swift in Sources */,
+				ACD78A252536459100B0C7B9 /* MealListTableViewController.swift in Sources */,
+				ACD78A372536528500B0C7B9 /* MealListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

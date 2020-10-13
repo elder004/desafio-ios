@@ -1,11 +1,11 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.5.0)
   - Alamofire (5.2.1)
   - DCKit (1.0.13)
   - JGProgressHUD (2.1)
   - Kingfisher (5.15.6):
     - Kingfisher/Core (= 5.15.6)
   - Kingfisher/Core (5.15.6)
-  - ObjectMapper (4.2.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -14,35 +14,35 @@ PODS:
   - RxSwift (5.1.1)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - Alamofire
   - DCKit
   - JGProgressHUD
   - Kingfisher
-  - ObjectMapper
   - RxCocoa
   - RxSwift
 
 SPEC REPOS:
   trunk:
+    - ActionSheetPicker-3.0
     - Alamofire
     - DCKit
     - JGProgressHUD
     - Kingfisher
-    - ObjectMapper
     - RxCocoa
     - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 6d79f6f3b98e2b21d218dd65a39f634ff37a27e5
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   DCKit: ca310752c3a4d442e772de66ce4e4168ea906d62
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
-  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: ce78ad60c569cdbd2669dc7ee8b426618b001e51
+PODFILE CHECKSUM: 73d4eec0ebaf794cfbc5f7b6c802659f0a8cd0af
 
 COCOAPODS: 1.8.4

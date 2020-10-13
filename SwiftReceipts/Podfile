@@ -11,9 +11,9 @@ target 'SwiftReceipts' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'DCKit'
-  pod 'ObjectMapper'
   pod 'Alamofire'
   pod 'JGProgressHUD'
+  pod 'ActionSheetPicker-3.0'
 
   target 'SwiftReceiptsTests' do
     inherit! :search_paths
