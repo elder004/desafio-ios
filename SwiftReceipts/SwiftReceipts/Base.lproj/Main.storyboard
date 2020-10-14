@@ -62,7 +62,7 @@
                             <outlet property="delegate" destination="HNy-VA-FhU" id="Glh-df-QTk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Swift Receipts" id="hpA-eu-tBz">
+                    <navigationItem key="navigationItem" title="Swift Meals" id="hpA-eu-tBz">
                         <barButtonItem key="rightBarButtonItem" image="baseline_emoji_flags_white_24pt" id="3GS-Bi-s09">
                             <connections>
                                 <action selector="openFilter:" destination="HNy-VA-FhU" id="KnO-Yj-i9i"/>
