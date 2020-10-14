@@ -57,4 +57,6 @@ struct Meal: Codable {
     var strMeasure18: String?
     var strMeasure19: String?
     var strMeasure20: String?
+    var strYoutube: String?
+    var strSource: String?
 }

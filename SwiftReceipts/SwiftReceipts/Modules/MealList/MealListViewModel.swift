@@ -17,6 +17,7 @@ class MealListViewModel {
     private let _meals = BehaviorRelay<[Meal]>(value: [])
     private let _loading = BehaviorRelay<Bool>(value: false)
     private let _errorMessage = BehaviorRelay<String?>(value: nil)
+    private let _mealDetails = BehaviorRelay<Meal?>(value: nil)
 
     private var _areas: [Area] = []
     
@@ -62,6 +63,10 @@ class MealListViewModel {
     var areas: [String] {
                 
         return _areas.map { $0.strArea ?? "" }
+    }
+    
+    var mealDetails: Driver<Meal?> {
+        return _mealDetails.asDriver()
     }
     
     func viewModelForIndex(index: Int) -> MealViewModel? {
@@ -125,6 +130,21 @@ class MealListViewModel {
             }else{
                 
                 self._errorMessage.accept(errorMessage)
+            }
+        }
+    }
+    
+    func fetchMealDetails(for index: Int){
+        
+        if(index < _meals.value.count){
+            
+            apiService.getMealDetails(id: _meals.value[index].idMeal!) { (errorMessage, meal) in
+                
+                if(meal != nil){
+                    self._mealDetails.accept(meal)
+                }else{
+                    self._errorMessage.accept(errorMessage)
+                }
             }
         }
     }

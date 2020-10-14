@@ -65,8 +65,22 @@ class MealListTableViewController: UITableViewController {
             }
             
         }).disposed(by: disposeBag)
+        
+        mealListViewModel.mealDetails.drive(onNext: { [unowned self] (mealDetails) in
+            
+            if let mealDetails = mealDetails {
+                self.openMealDetails(meal: mealDetails)
+            }
+            
+        }).disposed(by: disposeBag)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,6 +100,11 @@ class MealListTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        mealListViewModel.fetchMealDetails(for: indexPath.row)
+    }
+    
     @IBAction func openFilter(_ sender: Any) {
             
         let areaPicker = ActionSheetStringPicker(title: "Filter Meals by Area", rows: mealListViewModel.areas, initialSelection: selectedAreaIndex, doneBlock: {
@@ -98,5 +117,13 @@ class MealListTableViewController: UITableViewController {
         }, origin: self.buttonFilter)
         
         areaPicker?.show()
+    }
+    
+    func openMealDetails(meal: Meal){
+
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "MealDetailViewController") as? MealDetailViewController
+        vc?.mealDetailViewModel = MealDetailViewModel(meal: meal)
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
     }
 }

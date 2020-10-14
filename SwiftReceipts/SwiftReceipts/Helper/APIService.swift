@@ -34,7 +34,7 @@ struct APIService{
                     completion(error.localizedDescription, nil)
                 }
             }else{
-                completion("Erro! Tente novamente mais tarde.", nil)
+                completion("Error! Please try again later.", nil)
             }
         }
     }
@@ -59,7 +59,7 @@ struct APIService{
                 }
                 
             }else{
-                completion("Erro! Tente novamente mais tarde.", nil)
+                completion("Error! Please try again later.", nil)
             }
         }
     }
@@ -84,7 +84,42 @@ struct APIService{
                 }
                 
             }else{
-                completion("Erro! Tente novamente mais tarde.", nil)
+                completion("Error! Please try again later.", nil)
+            }
+        }
+    }
+    
+    func getMealDetails(id: String, completion: @escaping(_ errorMessage: String?, _ meal: Meal?) -> ()){
+        
+        AF.request("\(baseUrl)lookup.php?i=\(id)", method: .get).responseJSON {
+            response in
+            
+            if(response.error != nil){
+                
+                completion(response.error!.localizedDescription, nil)
+            }else if(response.response?.statusCode == 200){
+                
+                do {
+                    let result = try JSONDecoder().decode(MealsResult.self, from: response.data!)
+                    if let meals = result.meals{
+                        
+                        if(meals.count > 0){
+                            completion(nil, meals[0])
+                        }else{
+                            completion("Meal not found!", nil)
+                        }
+                        
+                    }else{
+                        completion("Error! Please try again later.", nil)
+                    }
+                    
+                } catch let error {
+                    print(error.localizedDescription)
+                    completion(error.localizedDescription, nil)
+                }
+                
+            }else{
+                completion("Error! Please try again later.", nil)
             }
         }
     }
