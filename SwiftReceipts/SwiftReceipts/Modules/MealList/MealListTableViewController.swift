@@ -85,8 +85,8 @@ class MealListTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.navigationController?.navigationBar.isHidden = false
+                
+        self.navigationController?.navigationBar.alpha = 1.0        
     }
     
     // MARK: - Table view data source
