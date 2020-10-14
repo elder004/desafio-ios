@@ -20,11 +20,25 @@ class MealListViewModel {
 
     private var _areas: [Area] = []
     
-    init(area: Driver<String>){
+    private var lastSelectedArea: String!
+    
+    init(area: Driver<String>, search: Driver<String>){
                 
         area.drive(onNext: { [weak self] (area) in
+            self?.lastSelectedArea = area
             self?.fetchMeals(area: area)
         }).disposed(by: disposeBag)
+        
+        search.debounce(.milliseconds(500))
+            .drive(onNext: { [weak self] (query) in
+                
+                if(!query.isEmpty){
+                    self?.fetchMeals(search: query)
+                }else{
+                    self?.fetchMeals(area: self!.lastSelectedArea)
+                }
+                
+            }).disposed(by: disposeBag)
         
         fetchAreas()
     }
@@ -89,6 +103,27 @@ class MealListViewModel {
                 
                 self._areas = areas
             }else{
+                self._errorMessage.accept(errorMessage)
+            }
+        }
+    }
+    
+    func fetchMeals(search: String){
+
+        self._meals.accept([])
+        self._loading.accept(true)
+        self._errorMessage.accept(nil)
+        
+        apiService.searchMealsByName(name: search) {
+            (errorMessage, meals) in
+            
+            self._loading.accept(false)
+            
+            if let meals = meals{
+                
+                self._meals.accept(meals)
+            }else{
+                
                 self._errorMessage.accept(errorMessage)
             }
         }

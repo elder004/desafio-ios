@@ -9,10 +9,12 @@ import UIKit
 import RxCocoa
 import RxSwift
 import ActionSheetPicker_3_0
+import JGProgressHUD
 
 class MealListTableViewController: UITableViewController {
     
     @IBOutlet weak var buttonFilter: UIBarButtonItem!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let disposeBag = DisposeBag()
     
@@ -20,14 +22,48 @@ class MealListTableViewController: UITableViewController {
     
     var mealListViewModel: MealListViewModel!
     var selectedAreaIndex = 0
+    
+    let progress = JGProgressHUD(style: .dark)
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        mealListViewModel = MealListViewModel(area: _area.asDriver())
-        //_area.accept("French")
+        mealListViewModel = MealListViewModel(area: _area.asDriver(), search: searchBar.rx.text.orEmpty.asDriver())
         
         mealListViewModel.meals.drive(onNext: { [unowned self] (_) in
             self.tableView.reloadData()
+        }).disposed(by: disposeBag)
+        
+        searchBar.rx.searchButtonClicked
+            .asDriver(onErrorJustReturn: ())
+            .drive(onNext: { [unowned searchBar] (_) in
+                searchBar?.resignFirstResponder()
+            }).disposed(by: disposeBag)
+        
+        searchBar.rx.cancelButtonClicked
+            .asDriver(onErrorJustReturn: ())
+            .drive(onNext: { [unowned searchBar] (_) in
+                searchBar?.resignFirstResponder()
+                searchBar?.text = nil
+            }).disposed(by: disposeBag)
+        
+        searchBar.rx.text.asDriver().drive(onNext: { [unowned searchBar] (_) in
+            
+            if(searchBar?.text?.count == 0){
+                searchBar?.resignFirstResponder()
+                searchBar?.showsCancelButton = false
+            }else{
+                searchBar?.showsCancelButton = true
+            }
+        }).disposed(by: disposeBag)
+        
+        mealListViewModel.isLoading.drive(onNext: { [unowned self] (isLoading) in
+            
+            if(isLoading){
+                self.progress.show(in: self.view)
+            }else{
+                self.progress.dismiss(animated: true)
+            }
+            
         }).disposed(by: disposeBag)
     }
 

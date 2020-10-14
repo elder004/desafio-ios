@@ -63,4 +63,29 @@ struct APIService{
             }
         }
     }
+    
+    func searchMealsByName(name: String, completion: @escaping(_ errorMessage: String?, _ meals: [Meal]?) -> ()){
+        
+        AF.request("\(baseUrl)search.php?s=\(name.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? name)", method: .get).responseJSON {
+            response in
+            
+            if(response.error != nil){
+                
+                completion(response.error!.localizedDescription, nil)
+            }else if(response.response?.statusCode == 200){
+                
+                do {
+                    let result = try JSONDecoder().decode(MealsResult.self, from: response.data!)
+                    completion(nil, result.meals)
+                    
+                } catch let error {
+                    print(error.localizedDescription)
+                    completion(error.localizedDescription, nil)
+                }
+                
+            }else{
+                completion("Erro! Tente novamente mais tarde.", nil)
+            }
+        }
+    }
 }
