@@ -73,6 +73,14 @@ class MealListTableViewController: UITableViewController {
             }
             
         }).disposed(by: disposeBag)
+        
+        mealListViewModel.errorMessage.drive(onNext: { [unowned self] (message) in
+            
+            if let message = message {
+                self.showAlert(title: "Error!", message: message)
+            }
+            
+        }).disposed(by: disposeBag)
     }
 
     override func viewDidAppear(_ animated: Bool) {
