@@ -47,7 +47,7 @@ class CoreDataService {
         
         do {
             
-            let keys = FavouriteMeal().entity.attributesByName.keys.sorted()
+            let keys = FavouriteMeal.init(context: context).entity.attributesByName.keys.sorted()
             
             var retrievedMeals: [Meal] = []
             
@@ -75,14 +75,17 @@ class CoreDataService {
         
         do {
             
-            let keys = FavouriteMeal().entity.attributesByName.keys.sorted()
+            let keys = FavouriteMeal.init(context: context).entity.attributesByName.keys.sorted()
             
             var retrievedMeals: [Meal] = []
             
             let result = try context.fetch(request)
+            
             for data in result as! [NSManagedObject] {
                 
-                retrievedMeals.append(try Meal(from: data.dictionaryWithValues(forKeys: keys)))
+                if(data.value(forKey: "idMeal") != nil){
+                    retrievedMeals.append(try Meal(from: data.dictionaryWithValues(forKeys: keys)))
+                }
             }
             
             return retrievedMeals

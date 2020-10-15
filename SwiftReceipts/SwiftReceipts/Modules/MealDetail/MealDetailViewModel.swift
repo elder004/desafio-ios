@@ -9,6 +9,8 @@ import Foundation
 import Kingfisher
 import RxSwift
 import RxCocoa
+import AlamofireImage
+import Alamofire
 
 class MealDetailViewModel {
     
@@ -18,11 +20,20 @@ class MealDetailViewModel {
     let coreDataService = CoreDataService()
     
     init(meal: Meal){
-        self._meal = meal
-                
-        let retrievedMeal = coreDataService.readMeal(id: meal.idMeal!)
         
+        self._meal = meal
+        let retrievedMeal = coreDataService.readMeal(id: meal.idMeal!)
         _isFavourite.accept(retrievedMeal != nil)
+        
+        if(_meal.thumb == nil && _meal.strMealThumb != nil){
+            
+            AF.request(meal.strMealThumb!).responseImage { (response) in
+                
+                if case .success(let image) = response.result {
+                    self._meal.thumb = image.toString()
+                }
+            }
+        }
     }
     
     var isFavourite: Driver<Bool> {
@@ -61,6 +72,10 @@ class MealDetailViewModel {
         }
         
         return nil
+    }
+    
+    var thumb: String? {        
+        return _meal.thumb
     }
     
     var shareUrl: URL? {

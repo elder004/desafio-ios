@@ -1,6 +1,8 @@
 PODS:
   - ActionSheetPicker-3.0 (2.5.0)
   - Alamofire (5.2.1)
+  - AlamofireImage (4.1.0):
+    - Alamofire (~> 5.1)
   - DCKit (1.0.13)
   - JGProgressHUD (2.1)
   - Kingfisher (5.15.6):
@@ -16,6 +18,7 @@ PODS:
 DEPENDENCIES:
   - ActionSheetPicker-3.0
   - Alamofire
+  - AlamofireImage
   - DCKit
   - JGProgressHUD
   - Kingfisher
@@ -26,6 +29,7 @@ SPEC REPOS:
   trunk:
     - ActionSheetPicker-3.0
     - Alamofire
+    - AlamofireImage
     - DCKit
     - JGProgressHUD
     - Kingfisher
@@ -36,6 +40,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: 6d79f6f3b98e2b21d218dd65a39f634ff37a27e5
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
   DCKit: ca310752c3a4d442e772de66ce4e4168ea906d62
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
@@ -43,6 +48,6 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 73d4eec0ebaf794cfbc5f7b6c802659f0a8cd0af
+PODFILE CHECKSUM: c13d686192c5f5d24adcbb7c0f02ca9d34f73b07
 
 COCOAPODS: 1.8.4

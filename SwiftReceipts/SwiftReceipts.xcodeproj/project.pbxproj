@@ -32,6 +32,8 @@
 		ACEE08A325378EAF002789D0 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEE08A225378EAF002789D0 /* Decodable+Extensions.swift */; };
 		ACEE08A825379910002789D0 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEE08A725379910002789D0 /* String+Extensions.swift */; };
 		ACEE08AD2537992F002789D0 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEE08AC2537992F002789D0 /* UIImage+Extensions.swift */; };
+		ACEE08C22537F3E2002789D0 /* FavouriteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEE08C12537F3E2002789D0 /* FavouriteListTableViewController.swift */; };
+		ACEE08C72537F4BE002789D0 /* FavouriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEE08C62537F4BE002789D0 /* FavouriteListViewModel.swift */; };
 		ACF8CD172536B107008C6252 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF8CD162536B107008C6252 /* MealDetailViewController.swift */; };
 		ACF8CD1C2536B831008C6252 /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF8CD1B2536B831008C6252 /* MealDetailViewModel.swift */; };
 		BD0DD5600DA214958BB67FE8 /* Pods_SwiftReceipts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C3DF796FB35F72C7468139 /* Pods_SwiftReceipts.framework */; };
@@ -89,6 +91,8 @@
 		ACEE08A225378EAF002789D0 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
 		ACEE08A725379910002789D0 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		ACEE08AC2537992F002789D0 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		ACEE08C12537F3E2002789D0 /* FavouriteListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListTableViewController.swift; sourceTree = "<group>"; };
+		ACEE08C62537F4BE002789D0 /* FavouriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListViewModel.swift; sourceTree = "<group>"; };
 		ACF8CD162536B107008C6252 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		ACF8CD1B2536B831008C6252 /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
 		B88AF78D3063646891F201C1 /* Pods-SwiftReceipts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftReceipts.debug.xcconfig"; path = "Target Support Files/Pods-SwiftReceipts/Pods-SwiftReceipts.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 		ACD78A1F253644B700B0C7B9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ACEE08C02537F3B2002789D0 /* FavouriteList */,
 				ACF8CD152536B0E6008C6252 /* MealDetail */,
 				ACD78A23253644C900B0C7B9 /* MealList */,
 			);
@@ -238,6 +243,15 @@
 				ACD78A312536509A00B0C7B9 /* MealViewModel.swift */,
 			);
 			path = MealList;
+			sourceTree = "<group>";
+		};
+		ACEE08C02537F3B2002789D0 /* FavouriteList */ = {
+			isa = PBXGroup;
+			children = (
+				ACEE08C12537F3E2002789D0 /* FavouriteListTableViewController.swift */,
+				ACEE08C62537F4BE002789D0 /* FavouriteListViewModel.swift */,
+			);
+			path = FavouriteList;
 			sourceTree = "<group>";
 		};
 		ACF8CD152536B0E6008C6252 /* MealDetail */ = {
@@ -497,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACEE08C72537F4BE002789D0 /* FavouriteListViewModel.swift in Sources */,
 				ACD78A192536440C00B0C7B9 /* MealsResult.swift in Sources */,
 				ACD78A1A2536440C00B0C7B9 /* AreasResult.swift in Sources */,
 				ACD78A322536509A00B0C7B9 /* MealViewModel.swift in Sources */,
@@ -506,6 +521,7 @@
 				ACD789C625362C9B00B0C7B9 /* APIService.swift in Sources */,
 				ACEE08AD2537992F002789D0 /* UIImage+Extensions.swift in Sources */,
 				ACD78A2D2536502000B0C7B9 /* MealTableViewCell.swift in Sources */,
+				ACEE08C22537F3E2002789D0 /* FavouriteListTableViewController.swift in Sources */,
 				ACF8CD172536B107008C6252 /* MealDetailViewController.swift in Sources */,
 				ACD789F12536384200B0C7B9 /* Meal.swift in Sources */,
 				ACD7897E253621B100B0C7B9 /* AppDelegate.swift in Sources */,

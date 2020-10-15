@@ -55,7 +55,13 @@ class MealDetailViewController: UIViewController {
     func configureView(){
                 
         self.navigationItem.title = mealDetailViewModel?.name
-        self.imageMeal.kf.setImage(with: mealDetailViewModel?.thumbUrl)
+        
+        if let thumb = mealDetailViewModel?.thumb {
+            self.imageMeal.image = thumb.toImage()
+        }else{
+            self.imageMeal.kf.setImage(with: mealDetailViewModel?.thumbUrl)
+        }
+                
         self.labelName.text = mealDetailViewModel?.name
         self.labelCategory.text = mealDetailViewModel?.category
         self.labelArea.text = mealDetailViewModel?.area

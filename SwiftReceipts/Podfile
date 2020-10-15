@@ -14,6 +14,7 @@ target 'SwiftReceipts' do
   pod 'Alamofire'
   pod 'JGProgressHUD'
   pod 'ActionSheetPicker-3.0'
+  pod 'AlamofireImage'
 
   target 'SwiftReceiptsTests' do
     inherit! :search_paths
