@@ -11,7 +11,7 @@ import RxCocoa
 
 class MealListViewModel {
     
-    private let apiService = APIService()
+    private var apiService: APIServiceProtocol
     private let disposeBag = DisposeBag()
     
     private let _meals = BehaviorRelay<[Meal]>(value: [])
@@ -23,8 +23,10 @@ class MealListViewModel {
     
     private var lastSelectedArea: String!
     
-    init(area: Driver<String>, search: Driver<String>){
-                
+    init(area: Driver<String>, search: Driver<String>, apiService: APIServiceProtocol = APIService()){
+       
+        self.apiService = apiService
+        
         area.drive(onNext: { [weak self] (area) in
             self?.lastSelectedArea = area
             self?.fetchMeals(area: area)
