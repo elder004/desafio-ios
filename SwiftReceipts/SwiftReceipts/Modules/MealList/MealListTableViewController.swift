@@ -86,7 +86,7 @@ class MealListTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
                 
-        self.navigationController?.navigationBar.alpha = 1.0        
+        self.navigationController?.navigationBar.alpha = 1.0
     }
     
     // MARK: - Table view data source
@@ -128,10 +128,9 @@ class MealListTableViewController: UITableViewController {
     }
     
     func openMealDetails(meal: Meal){
-
+        
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "MealDetailViewController") as? MealDetailViewController
         vc?.mealDetailViewModel = MealDetailViewModel(meal: meal)
-        self.navigationController?.pushViewController(vc!, animated: true)
-        
+        self.navigationController?.pushViewController(vc!, animated: true)        
     }
 }

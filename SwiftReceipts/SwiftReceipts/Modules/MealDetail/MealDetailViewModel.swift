@@ -7,13 +7,26 @@
 
 import Foundation
 import Kingfisher
+import RxSwift
+import RxCocoa
 
 class MealDetailViewModel {
     
     private var _meal: Meal
+    private var _isFavourite = BehaviorRelay<Bool>(value: false)
+    
+    let coreDataService = CoreDataService()
     
     init(meal: Meal){
         self._meal = meal
+                
+        let retrievedMeal = coreDataService.readMeal(id: meal.idMeal!)
+        
+        _isFavourite.accept(retrievedMeal != nil)
+    }
+    
+    var isFavourite: Driver<Bool> {
+        return _isFavourite.asDriver()
     }
     
     var name: String? {
@@ -93,5 +106,17 @@ class MealDetailViewModel {
         _meal.strIngredient20?.count ?? 0 > 0 ? list.append("\(_meal.strIngredient20!) - \(_meal.strMeasure20 ?? "")\n") : nil
         
         return list
+    }
+    
+    func toggleFavourite(){
+        
+        if(_isFavourite.value){
+            
+            _ = coreDataService.deleteMeal(id: _meal.idMeal!)
+        }else{
+            _ = coreDataService.createMeal(meal: _meal)
+        }
+        
+        _isFavourite.accept(!_isFavourite.value)
     }
 }

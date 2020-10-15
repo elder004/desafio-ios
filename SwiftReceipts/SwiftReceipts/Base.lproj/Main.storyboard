@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -136,7 +137,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Meal Name]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQU-cY-G2a">
-                                                <rect key="frame" x="8" y="438" width="398" height="27.5"/>
+                                                <rect key="frame" x="8" y="438" width="348" height="27.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -165,6 +166,17 @@
                                                     <action selector="back:" destination="8m5-Fb-ydx" eventType="touchUpInside" id="Fiu-X9-TSm"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epf-Vx-RPp">
+                                                <rect key="frame" x="364" y="431" width="42" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="9Hw-Cr-qOf"/>
+                                                    <constraint firstAttribute="width" constant="42" id="AP3-YF-FqH"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -178,9 +190,10 @@
                                             <constraint firstItem="mxc-B5-CvW" firstAttribute="top" secondItem="unP-kV-gFT" secondAttribute="bottom" constant="16" id="AE2-La-ROw"/>
                                             <constraint firstAttribute="trailing" secondItem="TpG-Xy-5zf" secondAttribute="trailing" constant="8" id="AUl-YI-56M"/>
                                             <constraint firstItem="TpG-Xy-5zf" firstAttribute="top" secondItem="QQU-cY-G2a" secondAttribute="bottom" constant="16" id="FAh-3A-Drf"/>
+                                            <constraint firstItem="Epf-Vx-RPp" firstAttribute="leading" secondItem="QQU-cY-G2a" secondAttribute="trailing" constant="8" symbolic="YES" id="HxL-Kp-tHx"/>
                                             <constraint firstItem="TpG-Xy-5zf" firstAttribute="leading" secondItem="6FA-Vv-r3k" secondAttribute="leading" constant="8" id="J0y-RP-Abk"/>
-                                            <constraint firstAttribute="trailing" secondItem="QQU-cY-G2a" secondAttribute="trailing" constant="8" id="Jo3-UL-Hkw"/>
                                             <constraint firstItem="at2-zE-hOX" firstAttribute="top" secondItem="uNi-3H-WHW" secondAttribute="bottom" constant="24" id="Ljz-js-UKf"/>
+                                            <constraint firstAttribute="trailing" secondItem="Epf-Vx-RPp" secondAttribute="trailing" constant="8" id="M1O-Ev-JbF"/>
                                             <constraint firstItem="uNi-3H-WHW" firstAttribute="leading" secondItem="6FA-Vv-r3k" secondAttribute="leading" constant="8" id="Rvz-wR-XMH"/>
                                             <constraint firstAttribute="trailing" secondItem="Byj-jl-yl2" secondAttribute="trailing" constant="8" id="SWR-tQ-xJJ"/>
                                             <constraint firstItem="QQU-cY-G2a" firstAttribute="top" secondItem="s2s-Vu-uAi" secondAttribute="bottom" constant="24" id="VYx-Op-YxQ"/>
@@ -188,6 +201,7 @@
                                             <constraint firstItem="unP-kV-gFT" firstAttribute="leading" secondItem="6FA-Vv-r3k" secondAttribute="leading" constant="8" id="XrU-aj-tQ9"/>
                                             <constraint firstItem="s2s-Vu-uAi" firstAttribute="top" secondItem="6FA-Vv-r3k" secondAttribute="top" id="Yrw-Gh-G9h"/>
                                             <constraint firstItem="d2v-99-6Z2" firstAttribute="leading" secondItem="6FA-Vv-r3k" secondAttribute="leading" constant="11" id="dMO-8M-JIa"/>
+                                            <constraint firstItem="Epf-Vx-RPp" firstAttribute="centerY" secondItem="QQU-cY-G2a" secondAttribute="centerY" id="haN-mJ-HxW"/>
                                             <constraint firstAttribute="trailing" secondItem="mxc-B5-CvW" secondAttribute="trailing" constant="8" id="lbO-O8-Bfh"/>
                                             <constraint firstAttribute="trailing" secondItem="nHx-er-GwI" secondAttribute="trailing" constant="11" id="oEl-VQ-xxb"/>
                                             <constraint firstAttribute="bottom" secondItem="at2-zE-hOX" secondAttribute="bottom" constant="64" id="sJp-2L-ZsT"/>
@@ -233,6 +247,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buttonBack" destination="d2v-99-6Z2" id="GS5-iq-eku"/>
+                        <outlet property="buttonFavourite" destination="Epf-Vx-RPp" id="ZKy-LB-Fju"/>
                         <outlet property="buttonShare" destination="nHx-er-GwI" id="y1n-4D-ZcB"/>
                         <outlet property="imageMeal" destination="s2s-Vu-uAi" id="Qin-b5-2z7"/>
                         <outlet property="labelArea" destination="Byj-jl-yl2" id="zdr-kL-3YP"/>
@@ -270,8 +285,12 @@
         <image name="baseline_emoji_flags_white_24pt" width="24" height="24"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

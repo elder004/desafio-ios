@@ -7,6 +7,8 @@
 
 import UIKit
 import Kingfisher
+import RxCocoa
+import RxSwift
 
 class MealDetailViewController: UIViewController {
 
@@ -20,8 +22,11 @@ class MealDetailViewController: UIViewController {
     
     @IBOutlet weak var buttonBack: UIButton!
     @IBOutlet weak var buttonShare: UIButton!
+    @IBOutlet weak var buttonFavourite: UIButton!
     
     var mealDetailViewModel: MealDetailViewModel?
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,15 @@ class MealDetailViewController: UIViewController {
         if let _ = mealDetailViewModel {
             configureView()
         }
+        
+        mealDetailViewModel?.isFavourite.drive(onNext: { [unowned self] (favourite) in
+                        
+            if(favourite){
+                self.buttonFavourite.setImage(UIImage.init(systemName: "star.fill"), for: .normal)
+            }else{
+                self.buttonFavourite.setImage(UIImage.init(systemName: "star"), for: .normal)
+            }
+        }).disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,6 +61,10 @@ class MealDetailViewController: UIViewController {
         self.labelArea.text = mealDetailViewModel?.area
         self.labelIngredients.text = mealDetailViewModel?.ingredients
         self.labelInstructions.text = mealDetailViewModel?.instructions
+        
+        self.buttonFavourite.rx.tap.bind {
+            self.mealDetailViewModel?.toggleFavourite()
+        }.disposed(by: disposeBag)
     }
     
     @IBAction func back(_ sender: Any) {
