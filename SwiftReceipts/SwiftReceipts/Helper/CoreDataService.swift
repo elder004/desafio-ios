@@ -112,6 +112,7 @@ class CoreDataService {
                 context.delete(data)
             }
             
+            try context.save()
             return true
         } catch let error {
             
@@ -135,6 +136,7 @@ class CoreDataService {
                 context.delete(data)
             }
             
+            try context.save()
             return true
         } catch let error {
             
